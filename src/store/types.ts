@@ -3,3 +3,10 @@ export interface ICityCoordinates {
     lon: number,
     lat: number
 }
+
+export interface IInitialState {
+    nameOfCity: string,
+    country: string,
+    lat: null | number,
+    lon: null | number
+}

@@ -1,18 +1,12 @@
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import { geocodingApi } from "./geocodingApi";
+import { cityInfoSlice } from "./cityInfoSlice";
 
-const apiKey = 'f0a17b7960c59b15f23a9397b5b32d24';
-
-const store = configureStore({
+export const store = configureStore({
     reducer: {
         [geocodingApi.reducerPath]: geocodingApi.reducer,
+        cityInfoReducer: cityInfoSlice.reducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(geocodingApi.middleware),
-})
-
-
-export { 
-    store,
-    apiKey,
-}
+});

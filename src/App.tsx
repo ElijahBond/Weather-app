@@ -1,13 +1,12 @@
-import { useState } from 'react'
+import { InputCity } from './components/InputCity'
 
 import './App.scss'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
 
   return (
     <>
-      
+      <InputCity />
     </>
   )
 }

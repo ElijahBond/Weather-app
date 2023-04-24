@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { apiKey } from './store';
-import type { ICityCoordinates } from './index';
+import { apiKey } from './index';
 
 export const geocodingApi = createApi({
     reducerPath: 'geocodingApi',
