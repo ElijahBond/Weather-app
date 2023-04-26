@@ -4,7 +4,7 @@ import { WeatherInCity } from './components/weatherInCity/WeatherInCity'
 import './App.scss'
 
 const App = () => {
-
+  
   return (
     <>
       <InputCity />

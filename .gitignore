@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 helper.md
+helper.json
 
 # Editor directories and files
 .vscode/*

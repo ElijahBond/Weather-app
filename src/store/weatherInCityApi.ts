@@ -16,7 +16,10 @@ export const weatherInCityApi = createApi({
     }),
 })
 
-export const { useGetWeatherInCityQuery } = weatherInCityApi;
+export const { 
+    useGetWeatherInCityQuery,
+    useLazyGetWeatherInCityQuery
+} = weatherInCityApi;
 
 
 

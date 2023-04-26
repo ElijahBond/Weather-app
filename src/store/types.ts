@@ -7,6 +7,13 @@ export interface ICityCoordinates {
 export interface IInitialState {
     nameOfCity: string,
     country: string,
-    lat: null | number,
-    lon: null | number
+    lat: number,
+    lon: number,
+    weatherMain: string,
+    weatherDescription: string,
+    temp: number,
+    feelsLike: number,
+    tempMin: number,
+    tempMax: number,
+    windSpeed: number,
 }

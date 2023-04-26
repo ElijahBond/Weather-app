@@ -12,7 +12,10 @@ export const geocodingApi = createApi({
     }),
 })
 
-export const { useGetCityCoordinatesByNameQuery } = geocodingApi;
+export const { 
+    useGetCityCoordinatesByNameQuery, 
+    useLazyGetCityCoordinatesByNameQuery 
+} = geocodingApi;
 
 
 // 'http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid={API key}'
