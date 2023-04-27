@@ -13,6 +13,7 @@ dist-ssr
 *.local
 helper.md
 helper.json
+helperMaket.jpg
 
 # Editor directories and files
 .vscode/*

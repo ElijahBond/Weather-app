@@ -1,0 +1,54 @@
+.weather {
+    font-weight: bold;
+    border-radius: 2rem;
+    background-color: white;
+    color: black;
+    height: 400px;
+    width: 500px;
+    margin: 2rem auto;
+    padding: 1rem;
+
+    .weather__city-and-date {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 4rem;
+    }
+
+    .main-info {
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    
+        .main-info__img {
+            height: 7rem;
+            width: 7rem;
+        }
+    
+        .main-info__desc {
+            width: 10rem;
+        }
+    }
+    
+    .additional-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .gh a {
+        color: #000000;
+
+        &:hover {
+            color: rgb(69, 190, 199);
+        }
+
+        &:active {
+            color: red;
+        }
+    }
+}
+

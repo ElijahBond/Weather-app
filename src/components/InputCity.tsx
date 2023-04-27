@@ -19,7 +19,7 @@ export const InputCity = () => {
         setLocalCityName(nameOfCity)
     } 
 
-    const onSubmitHandler = (event: any) => {
+    const onSubmitHandler = (event: React.FormEvent) => {
         event.preventDefault()
 
         getCityCoordinatesTrigger(localCityName)
