@@ -5,6 +5,10 @@ import { setCityCountry, setCityLat, setCityLon, setCityName, setDataInfoInCity 
 import { useAppDispatch } from '../store/hooks';
 import { useLazyGetWeatherInCityQuery } from '../store/weatherInCityApi';
 
+import './InputCity.scss';
+import { Button, TextField } from '@mui/material';
+import { TravelExplore } from '@mui/icons-material';
+
 // input city name. After that recieve info and dispatch name, lat, lon in store 
 
 export const InputCity = () => {
@@ -41,17 +45,33 @@ export const InputCity = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={onSubmitHandler}>
-            <input
-                value={localCityName}
-                type='text'
-                placeholder='Write city'
-                onChange={e => onCityNameHandler(e.target.value)}
+        <div className='input'>
+            <div className='input__title'>
+                Weather App
+            </div>
+
+            <div className='input__city'>
+                <form onSubmit={onSubmitHandler}>
+                <TextField 
+                    id="outlined-basic" 
+                    label="Write city" 
+                    variant="outlined"
+                    value={localCityName}
+                    type='text'
+                    placeholder='Write city'
+                    onChange={e => onCityNameHandler(e.target.value)} 
+                    size="small"
                 />
 
-            <button type='submit'>Search</button>
-            </form>
+                <Button 
+                    variant="contained" 
+                    endIcon={<TravelExplore />}
+                    type='submit'
+                >
+                    Search
+                </Button>
+                </form>
+            </div>
         </div>
     )
 }
