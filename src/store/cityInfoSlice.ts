@@ -13,6 +13,8 @@ const initialState: IInitialState = {
     tempMin: 0,
     tempMax: 0,
     windSpeed: 0,
+    sunrise: 0,
+    sunset: 0
 }
 
 export const cityInfoSlice = createSlice({
@@ -38,7 +40,9 @@ export const cityInfoSlice = createSlice({
             state.feelsLike = action.payload.main.feels_like
             state.tempMin = action.payload.main.temp_min
             state.tempMax = action.payload.main.temp_max
-            state.windSpeed = action.payload.wind.speed
+            state.windSpeed = action.payload.wind.speed,
+            state.sunrise = ((action.payload.sys.sunrise + action.payload.timezone) * 1000),
+            state.sunset = ((action.payload.sys.sunset + action.payload.timezone) * 1000)
         }
     }
 })

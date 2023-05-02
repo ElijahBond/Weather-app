@@ -16,4 +16,6 @@ export interface IInitialState {
     tempMin: number,
     tempMax: number,
     windSpeed: number,
+    sunrise: number,
+    sunset: number
 }

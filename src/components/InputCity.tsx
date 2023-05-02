@@ -64,6 +64,7 @@ export const InputCity = () => {
                 />
 
                 <Button 
+                    className='button-sb'
                     variant="contained" 
                     endIcon={<TravelExplore />}
                     type='submit'

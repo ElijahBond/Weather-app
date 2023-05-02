@@ -5,11 +5,24 @@
     margin: 0 auto;
     border-radius: 1.5rem;
     padding: 1rem;
+    
 
     .input__title {
         font-size: 22px;
         font-weight: bold;
         margin-bottom: 1rem;
+    }
+
+    .input__city {
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .button-sb {
+                margin-left: 0.4rem;
+            }
+        }
     }
 }
 
