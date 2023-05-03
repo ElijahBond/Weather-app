@@ -8,14 +8,15 @@ import { useLazyGetWeatherInCityQuery } from '../store/weatherInCityApi';
 import './InputCity.scss';
 import { Button, TextField } from '@mui/material';
 import { TravelExplore } from '@mui/icons-material';
+import { Spinner } from './Spinner';
 
 // input city name. After that recieve info and dispatch name, lat, lon in store 
 
 export const InputCity = () => {
     const [localCityName, setLocalCityName ] = useState('');
 
-    const [ getCityCoordinatesTrigger] = useLazyGetCityCoordinatesByNameQuery({})
-    const [ getDataInfoInCityTrigger] = useLazyGetWeatherInCityQuery({})
+    const [ getCityCoordinatesTrigger, { isLoading: isLoadingCoords, isError: isErrorCoords }] = useLazyGetCityCoordinatesByNameQuery({})
+    const [ getDataInfoInCityTrigger, { isLoading: isLoadingInfo, isError: isErrorInfo }] = useLazyGetWeatherInCityQuery({})
 
     const dispatch = useAppDispatch();
 
@@ -44,35 +45,49 @@ export const InputCity = () => {
         .catch((error) => console.error('rejected in geocoding', error))
     }
 
-    return (
-        <div className='input'>
-            <div className='input__title'>
-                Weather App
-            </div>
-
-            <div className='input__city'>
-                <form onSubmit={onSubmitHandler}>
-                <TextField 
-                    id="outlined-basic" 
-                    label="Write city" 
-                    variant="outlined"
-                    value={localCityName}
-                    type='text'
-                    placeholder='Write city'
-                    onChange={e => onCityNameHandler(e.target.value)} 
-                    size="small"
-                />
-
-                <Button 
-                    className='button-sb'
-                    variant="contained" 
-                    endIcon={<TravelExplore />}
-                    type='submit'
-                >
-                    Search
-                </Button>
-                </form>
-            </div>
+    const showSpinner = isLoadingCoords || isLoadingInfo ? <Spinner /> : null;
+    const showError = isErrorCoords || isErrorInfo ? (
+        <div>
+            Some problems...
         </div>
+    ) : null
+
+    console.log(showError)
+
+    return (
+        <>
+            <div className='input'>
+                <div className='input__title'>
+                    Weather App
+                </div>
+
+                <div className='input__city'>
+                    <form onSubmit={onSubmitHandler}>
+                    <TextField 
+                        id="outlined-basic" 
+                        label="Write city" 
+                        variant="outlined"
+                        value={localCityName}
+                        type='text'
+                        placeholder='Write city'
+                        onChange={e => onCityNameHandler(e.target.value)} 
+                        size="small"
+                    />
+
+                    <Button 
+                        className='button-sb'
+                        variant="contained" 
+                        endIcon={<TravelExplore />}
+                        type='submit'
+                    >
+                        Search
+                    </Button>
+                    </form>
+                </div>
+            </div>
+            
+            {showError}
+            {showSpinner}
+        </>
     )
 }
